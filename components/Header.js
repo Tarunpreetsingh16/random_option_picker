@@ -1,3 +1,4 @@
+/*Header - Header created to display at top of every sreen*/
 import React from 'react';
 import { Text, View } from 'react-native';
 import styleSheet from '../GlobalStyleSheet';

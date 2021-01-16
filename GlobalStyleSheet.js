@@ -24,7 +24,7 @@ export default styleSheet = StyleSheet.create({
 		flexDirection: 'column',
 	},
 	spinnerContainer: {
-		flex: 3,
+		flex: 6,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -34,19 +34,55 @@ export default styleSheet = StyleSheet.create({
 	},
 	executeButton: {
 		flex: 1,
-		backgroundColor: '#92C98E',
+		backgroundColor: 'black', //'#92C98E',
 		justifyContent: 'center',
 		alignItems: 'center',
-	},
-	proceedButton: {
-		flex: 1,
-		backgroundColor: '#2998EC',
-		justifyContent: 'center',
-		alignItems: 'center',
+		borderRightWidth: 2,
+		borderColor: 'white',
 	},
 	actionButtons: {
 		fontSize: 20,
 		fontWeight: 'bold',
 		color: 'white',
+	},
+	inputModalContainer: {
+		backgroundColor: 'rgba(24,24,24,0.5)',
+		flex: 1,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	liftedModalContainer: {
+		backgroundColor: 'rgba(24,24,24,1)',
+		height: '50%',
+		width: '80%',
+		justifyContent: 'center',
+		alignItems: 'center',
+		flexDirection: 'column',
+		...Platform.select({
+			ios: {
+				shadowOffset: { width: 1, height: 1 },
+			},
+			android: {
+				elevation: 20,
+			},
+		}),
+		shadowRadius: 16.0,
+	},
+	dangerButton: {
+		padding: 10,
+		backgroundColor: 'rgba(211,93,110,1)',
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRightWidth: 2,
+		borderColor: 'white',
+	},
+	proceedButton: {
+		padding: 10,
+		backgroundColor: 'rgba(116,199,184,1)',
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderLeftWidth: 1,
+		borderColor: 'white',
 	},
 });

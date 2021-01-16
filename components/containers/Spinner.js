@@ -1,6 +1,6 @@
+/*Spinner - Spinner created to visualize a spinner*/
 import React from 'react';
-import { Text, View } from 'react-native';
-import styleSheet from '../../GlobalStyleSheet';
+import { Text } from 'react-native';
 
 export const Spinner = () => {
 	return <Text> Spinner Placeholder</Text>;
