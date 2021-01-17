@@ -6,6 +6,7 @@ import {
 	View,
 	ToastAndroid,
 	Platform,
+	Alert,
 } from 'react-native';
 import styleSheet from '../../GlobalStyleSheet';
 import { List } from './List';
@@ -61,13 +62,30 @@ export const MainApp = () => {
 				ToastAndroid.show('No options added!', ToastAndroid.SHORT);
 			return;
 		}
-		//alert box here
-		//get list length to get the max length that we can pick
-		const optionsLength = options.length;
-		let randomNumber = Math.floor(Math.random() * optionsLength);
+		//Confirm if the user really wants to run it as it will clear the list
+		createAlert();
+	};
+	//method to create alert box when spin is clicked
+	const createAlert = () => {
+		Alert.alert('Are you sure?', 'It will clear the list.', [
+			{
+				text: 'Cancel',
+				onPress: () => {},
+				style: 'cancel',
+			},
+			{
+				text: 'Confirm',
+				onPress: () => {
+					//get list length to get the max length that we can pick
+					const optionsLength = options.length;
+					let randomNumber = Math.floor(Math.random() * optionsLength);
 
-		if (Platform.OS == 'android')
-			ToastAndroid.show(options[randomNumber], ToastAndroid.SHORT);
+					if (Platform.OS == 'android')
+						ToastAndroid.show(options[randomNumber], ToastAndroid.LONG);
+					setOptions([]);
+				},
+			},
+		]);
 	};
 	return (
 		/*Main View created to contain the whole app*/
